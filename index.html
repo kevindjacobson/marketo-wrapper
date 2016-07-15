@@ -1,0 +1,51 @@
+<html>
+  <head>
+  	<title>Rubiconmd marketo wrapper</title>
+  </head>
+  <body>
+    <table>
+    	<tr>
+    		<td>Pet Name</td>
+    		<td><input id="petName"/></td> 
+    	</tr>
+    	<tr>
+    		<td>Pet Types</td>
+    		<td><select id="petTypes"></select></td>
+    	</tr>
+    	<tr>
+    		<td><button onClick="validate()">Validate</button></td>
+    		<td><button onClick="submit()">Submit</button></td>
+    	</tr>
+	</table>
+  	
+  	
+  
+  	<script type="text/javascript" src="app.js"></script>
+  	<script type="text/javascript">
+  		var options = {
+  			marketoAPIUrl: "http://app-ab18.marketo.com",
+  			munchkinId: "<your munchkin Id>",
+  			formid: <your form Id>,
+  			fields: [ // replace with your form fields
+  				{id: "petName", type: "input"},
+  				{id: "petTypes", type: "select"},
+  			],
+  			onSuccess: function() {
+  				console.log("yey");
+  			}
+  		}	
+  		window.marketo = new RubiconMarketo(options);
+  		
+  		function validate() {
+  			var isValid = window.marketo.validate();
+  			console.log(isValid);
+  		}
+  		
+  		function submit() {
+  			window.marketo.submit();
+  		}
+  		
+  	
+  	</script>
+  </body>
+</html>
