@@ -105,6 +105,19 @@ function RubiconMarketo(options) {
 		return _self.form.getFormElem();
 	}
 	
+	/**
+	 * get the marketo form ids
+	 * @access public
+	 */
+	function getMarketoFormIds() {
+		var idArray = [];
+		
+		for(var x in _self.form.getValues()) {
+			idArray.push(x);
+		}
+		return idArray;
+	}
+	
 	
 	/*****************************************************************
 	 ********************** private function ************************* 
@@ -129,7 +142,6 @@ function RubiconMarketo(options) {
 				value = $(id + ' :selected').text();
 			}
 			formValues[_self.defaultOptions.fields[i].id] = value;
-			console.log(_self.defaultOptions.fields[i].id + " ==> " + value);
 		}
 		_self.form.setValues(formValues);
 	}
@@ -175,7 +187,6 @@ function RubiconMarketo(options) {
 								function(form) {
 				// create form function
 				_self.form = form;
-				console.log("form cached in object");
 				
 				// load all the select options if needed
 				for(var i = 0 ; i < _self.defaultOptions.fields.length ; i++) {
@@ -248,23 +259,6 @@ function RubiconMarketo(options) {
 	    script.src = url;
 	    document.getElementsByTagName("head")[0].appendChild(script);
 	}
-	
-	/**
-	 * 
-	 */
-//	function getFileLocation(){
-//		var tags = document.getElementsByTagName('script');
-//		var splittedURL = null;
-//		var fileBaseLine = "";
-//		for(var i = 0 ; i < tags.length ; i++) {
-//			splittedURL = tags[i].src.split("/");
-//			if(splittedURL[splittedURL.length - 1] === "app.js") {
-//				
-//				while()
-//			}
-//		}
-//	}
-	
 	/**
 	 * publicly exposed methods
 	 */
@@ -272,6 +266,7 @@ function RubiconMarketo(options) {
 		"validate": validateForm,
 		"submit": submitForm,
 		"getFields": getFields,
-		"getFormElem": getFormElem
+		"getFormElem": getFormElem,
+		"getMarketoFormSelectorIds": getMarketoFormIds
 	};
 }

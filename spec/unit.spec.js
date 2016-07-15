@@ -26,7 +26,15 @@ describe('Marketo API Wrapper Tests', function(){
 		expect(marketo.submit).toBeDefined();
 		expect(marketo.getFields).toBeDefined();
 		expect(marketo.getFormElem).toBeDefined();
+		expect(marketo.getMarketoFormSelectorIds).toBeDefined();
 	});
+	
+	it('verify that we get all of the ids', function(){
+		setTimeout(function() { 
+			var array = marketo.getMarketoFormSelectorIds();
+			expect(array).toEqual(['petName', 'petTypes', 'formid', 'munchkinId']);
+		}, 2000);
+	})
 	
 	it('verify form elements', function(done){
 		setTimeout(function() { // wait until the form is created
