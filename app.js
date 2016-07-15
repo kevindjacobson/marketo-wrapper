@@ -54,7 +54,7 @@ function RubiconMarketo(options) {
 	
 	/**
 	* validate the form by filling up the fields and calling the api for validation
-	* @param {Object} fields array of fields as key - value pair, example: {column1:value,...,...}, only needed if the data is 
+	* @param {Object} fields Optional - array of fields as key - value pair, example: {column1:value,...,...}, only needed if the data is 
 	* 				  being sent from an internal process and there is no html representation of the fields
 	* @access public
 	*/
@@ -68,7 +68,7 @@ function RubiconMarketo(options) {
 	
 	/**
 	 * submit the form, this will fail if the values are not valid.
-	 * @param {Object} fields array of fields as key - value pair, example: {column1:value,...,...}, only needed if the data is 
+	 * @param {Object} fields Optional - array of fields as key/value pair, example: {column1:value,...,...}, only needed if the data is 
 	 * 				   being sent from an internal process and there is no html representation of the fields
 	 * @access public
 	 */
@@ -87,10 +87,10 @@ function RubiconMarketo(options) {
 	}
 	
 	/**
-	 * get the field object which contains the:
-	 * 1) id
-	 * 2) type
-	 * 3) options - if its a select box
+	 * get the field object which contains the:<br>
+	 * 1) id <br>
+	 * 2) type<br>
+	 * 3) options - if its a select box<br>
 	 * @access public
 	 */
 	function getFields() {
@@ -98,7 +98,7 @@ function RubiconMarketo(options) {
 	}
 	
 	/**
-	 * get the form dom element
+	 * get the form DOM element
 	 * @access public
 	 */
 	function getFormElem() {
