@@ -23,13 +23,13 @@ gulp.task('clean', function() {
 gulp.task('copy-dependancies', function() {
 	
 	// copy jquery
-	gulp.src(['./node_modules/jquery/dist/jquery.min.js'])
-	   .pipe(gulp.dest('./dist/vendor/jquery'));
-	
-	// copy forms2
-	gulp.src(['./lib/forms2.js'])
-	   .pipe(uglify())
-	   .pipe(gulp.dest('./dist/vendor/marketo'));
+//	gulp.src(['./node_modules/jquery/dist/jquery.min.js'])
+//	   .pipe(gulp.dest('./dist/vendor/jquery'));
+//	
+//	// copy forms2
+//	gulp.src(['./lib/forms2.js'])
+//	   .pipe(uglify())
+//	   .pipe(gulp.dest('./dist/vendor/marketo'));
 	
 	gulp.src(['./app.js'])
 	   .pipe(uglify())

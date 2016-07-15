@@ -22,8 +22,8 @@ function RubiconMarketo(options) {
 	
 	/** @access private */
 	_self.defaultOptions = {
-		marketoLibUrl: "./dist/vendor/marketo/forms2.js",
-		jquery: "./dist/vendor/jquery/jquery.min.js",
+		marketoLibUrl: "http://app-ab18.marketo.com/js/forms2/js/forms2.min.js",
+		jquery: "https://code.jquery.com/jquery-2.2.4.min.js",
 		marketoAPIUrl: "",
 		munchkinId: "",
 		formid: "",
@@ -248,6 +248,22 @@ function RubiconMarketo(options) {
 	    script.src = url;
 	    document.getElementsByTagName("head")[0].appendChild(script);
 	}
+	
+	/**
+	 * 
+	 */
+//	function getFileLocation(){
+//		var tags = document.getElementsByTagName('script');
+//		var splittedURL = null;
+//		var fileBaseLine = "";
+//		for(var i = 0 ; i < tags.length ; i++) {
+//			splittedURL = tags[i].src.split("/");
+//			if(splittedURL[splittedURL.length - 1] === "app.js") {
+//				
+//				while()
+//			}
+//		}
+//	}
 	
 	/**
 	 * publicly exposed methods
