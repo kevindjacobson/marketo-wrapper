@@ -4,7 +4,7 @@ Libraray that wrappes the marketo API and simplfies the use of the Marketo form2
 The API Exposes methods for validating and submitting your local form into marketo.
 
 	
-## How to satrt
+## How to start
 
 	1) Create your form with the same ID's that the marketo form uses.
 	2) Include the dist folder (includes the library, form2.js and jquery).
