@@ -3,7 +3,7 @@
 Libraray that wrappes the marketo API and simplfies use of the form2 functunality, if you dont want to use the marketo embedded IFrame style form.
 This wrapper will:
 	
-	1) Create the Marketo form.<br>
+	1) Create the Marketo form.
 	2) Expose methods for validating and submitting your local form into marketo. 
 	
 	

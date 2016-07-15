@@ -1,4 +1,4 @@
-var gulp = require("gulp"),
+var gulp = require("gulp"), 
 	uglify = require('gulp-uglify'),
 	del = require('del'),
 	jasmine = require('gulp-jasmine'),
