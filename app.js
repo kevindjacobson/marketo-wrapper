@@ -180,48 +180,66 @@ function RubiconMarketo(options) {
 	 */
 	/** @access private */
 	function loadMarketo() {
-		loadScript(_self.defaultOptions.marketoLibUrl, function(){
-			MktoForms2.loadForm(_self.defaultOptions.marketoAPIUrl, 
-								_self.defaultOptions.munchkinId, 
-								_self.defaultOptions.formid, 
-								function(form) {
+
+		if(_self.defaultOptions.marketoLibUrl) {
+			loadScript(_self.defaultOptions.marketoLibUrl, function(){
+				loadMarketoForm();
+			});
+		}
+		else
+			loadMarketoForm();
+	}
+	
+	/**
+	 *	load the marketo form 
+	 */
+	/** @access private */
+	function loadMarketoForm() {
+		MktoForms2.loadForm(
+			_self.defaultOptions.marketoAPIUrl,
+			_self.defaultOptions.munchkinId,
+			_self.defaultOptions.formid,
+			function(form) {
 				// create form function
 				_self.form = form;
-				
+
 				// load all the select options if needed
-				for(var i = 0 ; i < _self.defaultOptions.fields.length ; i++) {
+				for (var i = 0; i < _self.defaultOptions.fields.length; i++) {
 					var options = null;
-					var id = '#' + _self.defaultOptions.fields[i].id;
-					if(_self.defaultOptions.fields[i].type === "select") {
-						options = form.getFormElem().find(id + ' option');
-						
+					var id = '#'
+							+ _self.defaultOptions.fields[i].id;
+					if (_self.defaultOptions.fields[i].type === "select") {
+						options = form.getFormElem().find(
+								id + ' option');
+
 						var element = $(id);
-						if(element && element.length > 0)
-						{
-							for(var y = 0 ; y < options.length ; y++) {
-								$(options[y]).clone().appendTo(element);
+						if (element && element.length > 0) {
+							for (var y = 0; y < options.length; y++) {
+								$(options[y]).clone().appendTo(
+										element);
 							}
 							$(id).val($(id + 'option:first').val());
-						}
-						else {
+						} else {
 							_self.defaultOptions.fields[i].options = [];
-							for(var opt = 0  ; opt < options.length ; opt++) {
-								_self.defaultOptions.fields[i].options.push($(options[opt]).text());
+							for (var opt = 0; opt < options.length; opt++) {
+								_self.defaultOptions.fields[i].options
+										.push($(options[opt])
+												.text());
 							}
 						}
-							
+
 					}
 				}
-				
+
 				/**
-				 * function to be triggered when a form is 
+				 * function to be triggered when a form is
 				 * successfully submitted
 				 */
-				_self.form.onSuccess(function(){
+				_self.form.onSuccess(function() {
 					_self.defaultOptions.onSuccess();
 				});
 			});
-		});
+
 	}
 	
 	/**
