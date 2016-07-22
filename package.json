@@ -4,15 +4,17 @@
   "description": "marketo wrapper",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1" 
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Gilboa Globen",
   "license": "RMD",
   "dependencies": {
+    "jquery": "^3.1.0"
   },
   "devDependencies": {
     "del": "^2.2.1",
     "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
     "gulp-jasmine": "^2.4.0",
     "gulp-jsdoc3": "^0.3.0",
     "gulp-jshint": "^2.0.1",

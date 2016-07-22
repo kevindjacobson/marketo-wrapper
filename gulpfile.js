@@ -3,8 +3,9 @@ var gulp = require("gulp"),
 	del = require('del'),
 	jasmine = require('gulp-jasmine'),
 	jshint = require('gulp-jshint'),
-	jsdoc = require('gulp-jsdoc3');
-	stylish = require('jshint-stylish');
+	jsdoc = require('gulp-jsdoc3'),
+	stylish = require('jshint-stylish'),
+	concat = require('gulp-concat');
 
 var Server = require('karma').Server; 
 
@@ -22,16 +23,8 @@ gulp.task('clean', function() {
  */
 gulp.task('copy-dependancies', function() {
 	
-	// copy jquery
-//	gulp.src(['./node_modules/jquery/dist/jquery.min.js'])
-//	   .pipe(gulp.dest('./dist/vendor/jquery'));
-//	
-//	// copy forms2
-//	gulp.src(['./lib/forms2.js'])
-//	   .pipe(uglify())
-//	   .pipe(gulp.dest('./dist/vendor/marketo'));
-	
-	gulp.src(['./app.js'])
+	gulp.src(['./lib/forms2.js', './app.js'])
+	   .pipe(concat('marketoWrapper.js'))
 	   .pipe(uglify())
 	   .pipe(gulp.dest('./dist'));
 	

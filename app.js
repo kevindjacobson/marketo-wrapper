@@ -22,7 +22,7 @@ function RubiconMarketo(options) {
 	
 	/** @access private */
 	_self.defaultOptions = {
-		marketoLibUrl: "http://app-ab18.marketo.com/js/forms2/js/forms2.min.js",
+		marketoLibUrl: "./lib/forms2.js",
 		jquery: "https://code.jquery.com/jquery-2.2.4.min.js",
 		marketoAPIUrl: "",
 		munchkinId: "",
@@ -56,6 +56,7 @@ function RubiconMarketo(options) {
 	* validate the form by filling up the fields and calling the api for validation
 	* @param {Object} fields Optional - array of fields as key - value pair, example: {column1:value,...,...}, only needed if the data is 
 	* 				  being sent from an internal process and there is no html representation of the fields
+	* @returns {Object} isValid returns a boolean for if the form is valid plus the errors
 	* @access public
 	*/
 	function validateForm(fields) {
