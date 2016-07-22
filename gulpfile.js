@@ -25,7 +25,7 @@ gulp.task('copy-dependancies', function() {
 	
 	gulp.src(['./lib/forms2.js', './app.js'])
 	   .pipe(concat('marketoWrapper.js'))
-	   .pipe(uglify())
+	   .pipe(uglify({preserveComments: "license"}))
 	   .pipe(gulp.dest('./dist'));
 	
 	gulp.start('jshint');
