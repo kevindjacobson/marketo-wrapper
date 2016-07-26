@@ -12,7 +12,8 @@
  * @param {String} options.fields - the fields that are going to be present in the form, should be an array of objects, example: 
  * 									[{id: column1, type: select/input}]
  * 									...
- * @param {function} options.onSuccess - submit success callback, default: console.log("form submitted sussesfully")
+ * @param {function} options.onSuccess - submit success callback
+ * @param {function} options.onReady - call back to be triggered when form is done loading
  * @constructor
  */
 function RubiconMarketo(options) {
@@ -29,7 +30,10 @@ function RubiconMarketo(options) {
 		formid: "",
 		fields: [], // [{id: <DOM_ID>, type: <input/select>}]
 		onSuccess: function() {
-			console.log("form submitted sussesfully");
+			//console.log("marketo form submitted sussesfully");
+		},
+		onReady: function() {
+			//console.log("marketo form ready");
 		}
 	};
 	var isValid = validateOptions();
@@ -232,6 +236,9 @@ function RubiconMarketo(options) {
 					}
 				}
 
+				 // trigger the onready function when the form is ready for action
+				_self.defaultOptions.onReady();
+				
 				/**
 				 * function to be triggered when a form is
 				 * successfully submitted
