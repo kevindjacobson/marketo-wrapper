@@ -12,6 +12,7 @@
  * @param {String} options.fields - the fields that are going to be present in the form, should be an array of objects, example: 
  * 									[{id: column1, type: select/input}]
  * 									...
+ * @param {Boolean} options.redirectAfterSubmit - should the form be redirected to the default marketo page, default to true  
  * @param {function} options.onSuccess - submit success callback
  * @param {function} options.onReady - call back to be triggered when form is done loading
  * @constructor
@@ -28,6 +29,7 @@ function RubiconMarketo(options) {
 		marketoAPIUrl: "",
 		munchkinId: "",
 		formid: "",
+		redirectAfterSubmit: true,
 		fields: [], // [{id: <DOM_ID>, type: <input/select>}]
 		onSuccess: function() {
 			//console.log("marketo form submitted sussesfully");
@@ -245,6 +247,7 @@ function RubiconMarketo(options) {
 				 */
 				_self.form.onSuccess(function() {
 					_self.defaultOptions.onSuccess();
+					return _self.defaultOptions.redirectAfterSubmit;
 				});
 			});
 
