@@ -29,7 +29,7 @@ gulp.task('copy-dependancies', function() {
 	   .pipe(gulp.dest('./dist'));
 	
 	gulp.src(['./lib/marketoUtil.js'])
-		.pipe(uglify({preserveComments: "license"}))
+		//.pipe(uglify({preserveComments: "license"}))
 		.pipe(gulp.dest('./dist'));
 	
 	gulp.start('jshint');
