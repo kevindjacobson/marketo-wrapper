@@ -28,8 +28,8 @@ gulp.task('copy-dependancies', function() {
 	   .pipe(uglify({preserveComments: "license"}))
 	   .pipe(gulp.dest('./dist'));
 	
-	gulp.src(['./lib/marketoUtil.js'])
-		//.pipe(uglify({preserveComments: "license"}))
+	gulp.src(['./node_modules/jquery/dist/jquery.min.js', './lib/marketoUtil.js'])
+		.pipe(uglify({preserveComments: "license"}))
 		.pipe(gulp.dest('./dist'));
 	
 	gulp.start('jshint');
