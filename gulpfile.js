@@ -28,6 +28,10 @@ gulp.task('copy-dependancies', function() {
 	   .pipe(uglify({preserveComments: "license"}))
 	   .pipe(gulp.dest('./dist'));
 	
+	gulp.src(['./lib/marketoUtil.js'])
+		.pipe(uglify({preserveComments: "license"}))
+		.pipe(gulp.dest('./dist'));
+	
 	gulp.start('jshint');
 	gulp.start('test');
 	
@@ -50,7 +54,7 @@ gulp.task('test', function(done){
 })
 
 gulp.task('generateDoc', function (cb) {
-    gulp.src(['README.md', 'app.js'], {read: false})
+    gulp.src(['README.md', 'app.js', './lib/marketoUtil.js'], {read: false})
         .pipe(jsdoc(cb));
 });
 

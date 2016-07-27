@@ -1,8 +1,5 @@
 /** 
  * @author gilboagl
- * create a wrapper around marketo in order 
- * to copy the values and submit the form via 
- * the marketo API
  * @param {Object} options - initialization options
  * @param {String} options.marketoLibUrl - marketo JS library location, default: ./dist/vendor/marketo/forms2.js
  * @param {String} options.jquery - Jquery library file location if it wasn't important on the page already, default: ./dist/vendor/jquery/jquery.min.js

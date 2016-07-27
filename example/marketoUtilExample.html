@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<script type="text/javascript" src="../lib/marketoUtil.js"></script>
+	</head>
+	<body>
+		<input name="name" type="text">
+	
+		<script type="text/javascript">
+		
+			if(window.location.href.indexOf("refresh") === -1)
+			{
+				window.location = window.location + "?refresh=true&name=gil";
+			}
+			else
+			{
+				urlToFields("name");
+			}
+		
+		</script>
+	</body>
+
+</html>
